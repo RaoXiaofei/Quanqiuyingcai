@@ -1,0 +1,360 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>全球英才</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/index.css" type="text/css" />
+	<link rel="stylesheet" href="css/top.css"/>
+	<link rel="stylesheet" href="css/swiper.min.css" />
+	<link rel="stylesheet" href="css/kuCity.css" />
+	<link rel="stylesheet" href="css/bottom.css" />
+	<link rel="stylesheet" href="css/style5.css" />
+</head>
+
+<body style="background-color: #F7F8F9;">
+	<!--顶部栏-->
+	<!--<include src = "top.html"></include>-->
+	<div class="top1" id="top1" style="position: relative;">
+		<div class="container" style="min-width: 1170px;">
+			<div class="row col-xs-12 col-md-12">
+				<span class="top-text01 loginframe" id="atCity"></span>&nbsp;&nbsp;
+		  		<input type="text" class="top-text02 search changeCity" placeholder="切换城市" value="">
+		  		<img src="assets/首页logo.png">&nbsp;&nbsp;
+		  		<a href="index.html"><span class="top-text03 loginframe">全球英才首页</span></a>
+				
+		  		<a data-toggle="modal" href="#login"><span class="top-text04 login loginframe" id="Login">登录</span></a>
+				  	<div class="modal fade" id="login">
+				    	<div class="modal-dialog">
+				        	<div class="modal-content"style="width: 380px; height: 436px;">
+				            	<div class="modal-header head-model" id="head-model">
+				            		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				                	<h4 class="modal-title login-title">全球英才</h4>
+				            	</div>
+				            	<div class="modal-body" id="body-modal" style="padding-left: 35px;">
+					            	<p class="phone-text">手机号登录</p>
+					                <span class="phone-number">手机号</span><br />
+					            	<input type="text" class="form-control phone" id="phone" placeholder="手机号"
+		  								onfocus="if(placeholder=='手机号')placeholder=''" onblur="if(!placeholder)placeholder='手机号'"/>
+				                	<img src="assets/clear.jpg" id="qingkong"/>
+		  							<input type="text" class="form-control code-frame" id="code-frame" placeholder="验证码"
+		  								onfocus="if(placeholder=='验证码')placeholder=''" onblur="if(!placeholder)placeholder='验证码'">
+		  							<button type="button" class="getCode" id="get-code" style="width: 90px;font-size: 24px;"><span class="get-codetext">获取验证码</span></button>
+		  							<br />
+		  							<button type="button" class="login-button" id="login-button" onclick="login()"><span class="login-buttontext">登录</span></button>						
+				           		</div>      
+				        	</div>
+				    	</div>
+				    </div>
+				
+					<span class="top-text04 login loginframe ppp" id="Logout">退出登录</span>
+					<span class="top-text04 login loginframe pp" id="pp"></span>
+	  		    </div>
+			</div>
+		</div>
+	<div class="toptoptop" id="top2">
+		<div class="container" style="min-width: 1170px;">
+			<div class="row col-xs-12 col-md-12 navi">
+				<a href="index.html"><img src="img/toplogo.png" /></a>
+				<div class="nav_menu">
+					<a href="index.html"><span class="top-text05">首页</span></a>
+					<div class="dropdown nav_text01">
+						<span id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="top-text05">分类</span>
+						<ul class="dropdown-menu drMenu" aria-labelledby="dLabel" id="drMenu">
+							<li>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#allwork-infor">全部职位</a></span>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#roundwork-infor">周边工作</a></span>
+							</li>
+							<li>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#resume-infor">简历</a></span>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#summer-infor">暑假工</a></span>
+							</li>
+							<li>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#bus-infor">全国大巴</a></span>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#short-infor">短期工</a></span>
+							</li>
+							<li>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#abroad-infor">出国打工</a></span>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#cofession-infor">供人</a></span>
+							</li>
+							<li>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#winner-infor">寒假工</a></span>
+								<span class="indexMenuText"><a href="list-work.html?__hbt=1502417911378#rent-infor">周边租房</a></span>
+							</li>
+						</ul>
+					</div>
+					<a href="issue.html"><span class="top-text05">发布</span></a>
+					<a href="all-information.html#identify-information"><span class="top-text05">个人中心</span></a>
+				</div>
+				<!--<div class="nav_text02">
+					<input class="search-frame" type="text" id="keywords"  placeholder="请输入关键字"
+		  								onfocus="if(placeholder=='请输入关键字')placeholder=''" onblur="if(!placeholder)placeholder='请输入关键字'"/>
+					<span class="glyphicon glyphicon-search" id="button-sousuo"></span>
+				</div>-->
+			</div>
+		</div>
+	</div>
+			
+	<div class="container" style="min-width: 1170px;position: relative;">
+		<!--轮播图-->
+		<div class="row col-xs-12 col-md-12" id="middle-container" style="margin-top: -4px;">	
+			<!-- Swiper -->
+		    <div class="swiper-container">
+		        <div id="banner1" class="swiper-wrapper">
+		            <!--<div class="swiper-slide" ><img src="img/banner.png" style="width: 100%; height: 100%;"/></div>-->
+		        </div>
+		        <!-- Add Pagination -->
+		        <div class="swiper-pagination"></div>
+		        <!-- Add Arrows -->
+		        <!--<div class="swiper-button-next"></div>
+		        <div class="swiper-button-prev"></div>-->
+		    </div>
+		    <div class="downloadShow">
+		    	<p>找工作&nbsp;&nbsp;就用<span class="company-title">全球英才</span></p>
+		    	<h5>全才通手机客户端</h5>
+		    	<button type="button" class="android"><img src="img/anzhuo.png"/><span class="Androidtext">Android&nbsp;版下载</span></button>
+		    	<button type="button" class="ios"><img src="img/ios.png"/><span class="Androidtext">iOS&nbsp;版下载</span></button>
+		    	<img src="img/二维码.jpg" />
+		    </div>
+		</div>	
+		
+		
+		<div class="row col-xs-12 col-md-12 content" id="middle-container" style="margin-top: 20px;margin-bottom: 20px;">	
+			<!--<div class="toppp">
+				<a href="list-work.html#allwork-infor"><div class="menu-table">
+					<h5><img src="img/all_work.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">全部工作</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#roundwork-infor"><div class="menu-table">
+					<h5><img src="img/working_around.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">周边工作</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#resume-infor"><div class="menu-table">
+					<h5><img src="img/resume.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">简历</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#summer-infor"><div class="menu-table">
+					<h5><img src="img/summer.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">暑假工</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#bus-infor"><div class="menu-table" style="border: 0px;">
+					<h5><img src="img/national_bus.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">全国大巴</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+			</div>
+			
+			<div class="bottt">
+				<a href="list-work.html#short-infor"><div class="menu-table">
+					<h5><img src="img/short_term.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">短期工</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#abroad-infor"><div class="menu-table">
+					<h5><img src="img/go_abroad.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">出国打工</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#cofession-infor"><div class="menu-table">
+					<h5><img src="img/people.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">供人</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#winner-infor"><div class="menu-table">
+					<h5><img src="img/holidays.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">寒假工</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+				<a href="list-work.html#rent-infor"><div class="menu-table" style="border: 0px;">
+					<h5><img src="img/surrounding_rent.png" /></h5>
+					<h5 style="margin-top: 27px;"><span class="drText01">周边租房</span><br /><span class="drText02">找工作的平台</span></h5>
+				</div></a>
+			</div>
+		-->
+		
+			<ul class="ca-menu">
+                <li>
+                    <a href="list-work.html#allwork-infor">
+                        <span class="ca-icon"><img src="img/all_work.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">全部工作</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="list-work.html#roundwork-infor">
+                        <span class="ca-icon"><img src="img/working_around.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">周边工作</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="list-work.html#resume-infor">
+                        <span class="ca-icon"><img src="img/resume.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">简历</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="list-work.html#summer-infor">
+                        <span class="ca-icon"><img src="img/summer.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">暑假工</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li style="border: 0px;">
+                    <a href="list-work.html#bus-infor">
+                        <span class="ca-icon"><img src="img/national_bus.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">全国大巴</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+			
+			<ul class="ca-menu">
+                <li>
+                    <a href="list-work.html#short-infor">
+                        <span class="ca-icon"><img src="img/short_term.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">短期工</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="list-work.html#abroad-infor">
+                        <span class="ca-icon"><img src="img/go_abroad.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">出国打工</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="list-work.html#cofession-infor">
+                        <span class="ca-icon"><img src="img/people.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">供人</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="list-work.html#winner-infor">
+                        <span class="ca-icon"><img src="img/holidays.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">寒假工</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+                <li style="border: 0px;">
+                    <a href="list-work.html#rent-infor">
+                        <span class="ca-icon"><img src="img/surrounding_rent.png" /></span>
+                        <div class="ca-content">
+                            <h2 class="ca-main">周边租房</h2>
+                            <h3 class="ca-sub">找工作的平台</h3>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-12 col-md-9" style="background-color: #FFFFFF;">
+				<div id="sousuo" style="margin-top: 30px;">
+					<input type="text" placeholder="请输入搜索" id="index-keywords"/>
+					<button type="button" style="margin-left: -87px;" onclick="SearchAllposition(this)">搜索</button>
+					<button type="button" onclick="Issue()">一键发布</button>
+				</div>
+				
+				<div id="guess">
+					<div id="line"><span class="index-text03">猜你喜欢</span></div>
+				</div>
+				
+				<div  id="Guess-Infor">
+					<p class="index-guesstext" id="index-infor01" onclick="ShowIndexDe(this)">
+						<!--<span class="index-text04">专业的销售代表<span class="index-text06" id="faster">[<img src="img/urgent.png" />加急]</span></span>
+						<span class="index-text05">宁波轩马信息科技有限公司</span>
+						<span class="index-text07">2000/月</span>-->
+					</p>
+				</div>
+				
+				<div class="getMo" id="getMo"  onclick="GetMore()" >
+					<span class="glyphicon glyphicon-chevron-down" id="getMore" aria-hidden="true"></span>
+					<span class="moreText">点击加载更多</span>
+				</div>
+			</div>
+			
+			<div class="div-guess-right">
+				<div class="guess-right">
+					<div>
+						<img  src="img/右侧.jpg"/>
+					</div>
+					<div>
+						<h4>专业销售代表</h4>
+						<h5>2000/月</h5>
+					</div>
+				</div>
+				<div class="guess-right">
+					<div>
+						<img  src="img/右侧.jpg"/>
+					</div>
+					<div>
+						<h4>专业销售代表</h4>
+						<h5>2000/月</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 引用底部栏  -->
+	<div class="bo">
+		<div class="container allbottom" style="min-width: 1170px;"> 
+			<p>
+				<span>copyright @ 2017 全球英才版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<a href="QuancaiIntro.html"><span>全球英才介绍&nbsp;&nbsp;|</span></a>
+				<a href="#"><span>&nbsp;联系我们</span></a>
+			</p>
+		</div>
+	</div>
+	
+</body>
+	<script src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="layer/layer.js" ></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/include.js"></script>
+    <script src="js/urlf.js"></script>
+    <script src="js/login.js"></script>
+	<script src="js/html5shiv.js"></script>
+	<script src="js/jQuery.md5.js"></script>
+    <script src="js/index/swiper.min.js"></script>
+    <script src="js/changecity.js"></script>
+    <script src='http://api.map.baidu.com/api?v=2.0&ak=GAGiz9gdoRfTpImL6A2RZYxH' type='text/javascript'></script>
+    <script type="text/javascript">
+    	var cityci;
+    	// 百度地图API功能
+		var map = new BMap.Map("bdMapBox");
+		var nowCity = new BMap.LocalCity();
+		nowCity.get(bdGetPosition);
+		function bdGetPosition(result){
+			this.cityci = result.name; //当前的城市名			
+			/*自定义代码*/
+//			atCity.innerHTML = this.cityci;
+			/*自定义代码*/		
+			setCookie("city",this.cityci);
+		}	
+    </script>
+    <script src="js/kuCity.js"></script>
+    <script>
+    	$('.search').kuCity();
+    </script>
+    <script type="text/javascript" src="js/index/swiper.min.js" ></script>
+    <script src="js/index/index.js"></script>  
+</html>
