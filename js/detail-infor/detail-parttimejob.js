@@ -66,8 +66,8 @@ $.ajax({
 			}
 			
 			r += '<div class="btn-group bu" role="group">'
-			r +=	  '<button type="button" class="btn btn-default dropdown-toggle btn-danger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">电话联系</button>'
-			r +=	  '<ul class="dropdown-menu">'
+			r +=	  '<button type="button" class="btn btn-default dropdown-toggle btn-danger phone-contact" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">电话联系</button>'
+			r +=	  '<ul class="dropdown-menu dropMenu">'
 			r +=		 '<li>'+re.Phone+'</li>'
 			r +=	  '</ul>'
 			r +=	'</div>'			
@@ -84,6 +84,10 @@ $.ajax({
 			$("#wr").html(intro);
 			$("#wrimg").html(img);
 			$("#partJob-Banner").html(tImg);
+			
+			if(getCookie("token") == null){
+				$(".phone-contact").attr("disabled", true);
+			}
 		}
 		else{
 			alert(data.Result);

@@ -6,6 +6,7 @@
 #work-describe{
 	background-color:#FFFFFF;
 	margin-bottom: 20px;
+	min-height: 300px;
 }
 #company{
 	background-color:#FFFFFF;
@@ -110,7 +111,7 @@
     letter-spacing: 1px;
     color: #9B9B9B;
     padding-top: 2px;
-    width: 197px;
+    width: 215px;
     padding-left: 38px;
     /*margin-left: 5px;*/
 }

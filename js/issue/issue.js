@@ -143,37 +143,45 @@ $("#issue-resume-button").click(function(){
 	var SalaryExpectation = parseInt($("#salary-expire").val());
 	var Introduction = $("#resume-selfIntro").val();
 	var Token = getCookie("token");
-	
-	$.ajax({
-		type:"POST",
-		url:urlf+"api/Release/PCCreateResume",
-		async:true,
-		data:{
-			"Name": Name,
-		    "Sex": Sex,
-		    "Province": Province,
-		    "City": City,
-		    "Region": Region,
-		    "Address": Address,
-		    "WorkExperience": WorkExperience,
-		    "phone": Phone,
-		    "QQNumber":ResumeQQ,
-		    "Qualifications": Qualifications,
-		    "PositionID": PositionID,
-		    "SalaryExpectation": SalaryExpectation,
-		    "Introduction": Introduction,
-		    "Token": Token
-		},
-		success:function(data){
-//			console.log(data.Result);
-			if(data.Status == 1){
-				alert("发布简历信息成功");
+	if(Name == "" || ResumeQQ == "" || Address == "" || WorkExperience == "" || Phone == "" || Qualifications == "" || SalaryExpectation == "" || Introduction == ""){
+		alert("请将信息填写完整")
+	}
+	else{
+		$.ajax({
+			type:"POST",
+			url:urlf+"api/Release/PCCreateResume",
+			async:true,
+			data:{
+				"Name": Name,
+			    "Sex": Sex,
+			    "Province": Province,
+			    "City": City,
+			    "Region": Region,
+			    "Address": Address,
+			    "WorkExperience": WorkExperience,
+			    "phone": Phone,
+			    "QQNumber":ResumeQQ,
+			    "Qualifications": Qualifications,
+			    "PositionID": PositionID,
+			    "SalaryExpectation": SalaryExpectation,
+			    "Introduction": Introduction,
+			    "Token": Token
+			},
+			error:function(){
+				alert("请将信息填写完整")
+			},
+			success:function(data){
+	//			console.log(data.Result);
+				if(data.Status == 1){
+					alert("发布简历信息成功");
+				}
+				else{
+					alert(data.Result);
+				}
 			}
-			else{
-				alert(data.Result);
-			}
-		}
-	});
+		});
+	}
+
 })
 
 /*
@@ -190,32 +198,38 @@ $("#issue-provide-button").click(function(){
 	var Region = $("#issue-providecmbArea").val();
 	var Address = $("#provide-address").val();
 	var Token = getCookie("token");
-	
-	$.ajax({
-		type:"POST",
-		url:urlf+"api/Release/PCCreateProvide",
-		data:{
-			"WorkType": WorkType,
-		  	"Salary": Salary,
-		  	"Count": Count,
-		  	"Name": Name,
-		  	"Phone": Phone,
-		  	"Province": Province,
-		  	"City": City,
-		  	"Region": Region,
-		  	"Address": Address,
-		  	"Token": Token
-		},
-		success:function(data){
-			if(data.Status == 1){
-				alert("发布供人成功");
+	if(WorkType == "" || Salary == "" || Count == "" || Name == "" || Phone == "" || Address == ""){
+		alert("请将信息填写完整");
+	}
+	else{
+		$.ajax({
+			type:"POST",
+			url:urlf+"api/Release/PCCreateProvide",
+			data:{
+				"WorkType": WorkType,
+			  	"Salary": Salary,
+			  	"Count": Count,
+			  	"Name": Name,
+			  	"Phone": Phone,
+			  	"Province": Province,
+			  	"City": City,
+			  	"Region": Region,
+			  	"Address": Address,
+			  	"Token": Token
+			},
+			error:function(){
+				alert("请将信息填写完整")
+			},
+			success:function(data){
+				if(data.Status == 1){
+					alert("发布供人成功");
+				}
+				else{
+					alert(data.Result);
+				}
 			}
-			else{
-				alert(data.Result);
-			}
-		}
-	});
-	
+		});
+	}
 })
 
 //出租房价目表上传
@@ -243,33 +257,42 @@ $("#issue-rent-button").click(function(){
 	
 	var Token = getCookie("token");
 	
-	$.ajax({
-		type:"post",
-		url:urlf+"api/Release/PCCreateHouse",
-		async:true,
-		data:{
-			"Name": Name,
-			"Province": Province,
-			"City": City,
-			"Region": Region,
-			"Address": Address,
-			"Longitude": 0,
-			"Latitude": 0,
-			"Introduce": Introduce,
-			"PirceImage": PriceImage,
-			"ImageList": ImageList,
-			"Token": Token
-		},
-		success:function(data){
-			if(data.Status == 1){
-				alert("发布成功");
+	if(Name == "" || Address == "" || Introduce == "" || PriceImage == "" || ImageList == ""){
+		alert("请将信息填写完整");
+	}
+	else{
+		$.ajax({
+			type:"post",
+			url:urlf+"api/Release/PCCreateHouse",
+			async:true,
+			data:{
+				"Name": Name,
+				"Province": Province,
+				"City": City,
+				"Region": Region,
+				"Address": Address,
+				"Longitude": 0,
+				"Latitude": 0,
+				"Introduce": Introduce,
+				"PirceImage": PriceImage,
+				"ImageList": ImageList,
+				"Token": Token
+			},
+			error:function(){
+				alert("请将信息填写完整")
+			},
+			success:function(data){
+				if(data.Status == 1){
+					alert("发布成功");
+				}
+				else{
+					alert(data.Result);
+				}
 			}
-			else{
-				alert(data.Result);
-			}
-		}
-		
-	});
+			
+		});
+	}
+	
 })
 
 UploadCardImg("cardImage", "cardImge", "cardImga")
@@ -285,31 +308,38 @@ $("#issue-bus-button").click(function(){
 	var Address = $("#car-address").val()
 	var Image = img_value;
 	var Token = getCookie("token");
-	
-	$.ajax({
-		type:"post",
-		url:urlf+"api/Release/PCCreateBus",
-		async:true,
-		data:{
-			"DriverName": Name,
-  			"LicensePlate": Plate,
- 		 	"Province": Province,
-  			"City": City,
-  			"Region": Region,
-  			"Address": Address,
-  			"Image": Image,
-  			"Longitude": 0,
-  			"Latitude": 0,
-  			"Token": Token
-		},
-		success:function(data){
-			if(data.Status == 1){
-				alert("发布成功");
+	if(Name == "" || Plate == "" || Address == "" || Image == ""){
+		alert("请将信息填写完整")
+	}
+	else{
+		$.ajax({
+			type:"post",
+			url:urlf+"api/Release/PCCreateBus",
+			async:true,
+			data:{
+				"DriverName": Name,
+	  			"LicensePlate": Plate,
+	 		 	"Province": Province,
+	  			"City": City,
+	  			"Region": Region,
+	  			"Address": Address,
+	  			"Image": Image,
+	  			"Longitude": 0,
+	  			"Latitude": 0,
+	  			"Token": Token
+			},
+			error:function(){
+				alert("请将信息填写完整")
+			},
+			success:function(data){
+				if(data.Status == 1){
+					alert("发布成功");
+				}
+				else{
+					alert(data.Result);
+				}
 			}
-			else{
-				alert(data.Result);
-			}
-		}
 		
-	});
+		});
+	}
 })

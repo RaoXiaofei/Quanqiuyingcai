@@ -51,19 +51,11 @@ $(document).ready(function(){
 				work+= '<div class="work-line01 work-address">'
 				work+= 	'<img src="assets/坐标.png" class="img"/>'
 				work+= 	'<span class="work-text05">'+re.Address+'</span>'
-//				if(re.IsUrgent == true){
-//					work+= 	  '<img src="img/jiaji.png" class="img"/>'
-//					work+= 	  '<span class="work-text005">加急</span>'
-//					work+= '</div>'
-//					work+= '<div class="work-line01 jiaji">'
-//					work+= 	   '<img src="img/daojishi.png" class="imgggg"/>'
-//					work+= 	   '<span class="CountDown">距结束00：00：40</span>'
-//				}
 				work+= '</div>'
 				work+= '<div class="work-line02" style="margin-top:60px;">'
 				work += '<div class="btn-group" role="group">'
-				work +=	  '<button type="button" class="btn btn-default dropdown-toggle btn-danger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">电话联系</button>'
-				work +=	  '<ul class="dropdown-menu">'
+				work +=	  '<button type="button" class="btn btn-default dropdown-toggle btn-danger phone-contact" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">电话联系</button>'
+				work +=	  '<ul class="dropdown-menu dropMenu">'
 				work +=		 '<li>'+re.Phone+'</li>'
 				work +=	  '</ul>'
 				work +=	'</div>'
@@ -76,6 +68,10 @@ $(document).ready(function(){
 				$("#Work").html(work);
 				$("#wr").html(intro);
 				$("#wrimg").html(img);
+				
+				if(getCookie("token") == null){
+					$(".phone-contact").attr("disabled", true);
+				}
 				
 			}
 			else{

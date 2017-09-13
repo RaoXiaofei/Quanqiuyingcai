@@ -34,6 +34,9 @@ body {
 	font-family:"微软雅黑";
 	font-size: 16px;
 }
+.list-text03:hover{
+	color: #4A4A4A;
+}
 .list-text01{
 	font-family:"微软雅黑";
 	font-size: 12px;
@@ -63,4 +66,7 @@ body {
 ul, ol {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+#keywords:hover{
+	border: 1px solid #3DA8F5;
 }

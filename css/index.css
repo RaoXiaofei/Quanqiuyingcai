@@ -199,15 +199,17 @@ div.getMo{
     top: 6px;
 }
 .getCode{
-	position: absolute;
-    left: 241px;
-    top: 160px;
+    position: absolute;
+    left: 263px;
+    top: 63px;
     border-radius: 6px;
     background-color: #FFFFFF;
-    border: 1px solid #FF6146;
+    border: 1px solid #979797;
     height: 30px;
 }
-
+.getCode:hover{
+	background-color: #f7f8f9;
+}
 #container2 .index-text30{
 	padding-left: 15px;
 	display:-moz-inline-box;
@@ -271,7 +273,9 @@ div.getMo{
 	font-size: 14px;
 	color: #4A4A4A;
 }
-
+#container2 p:hover{
+	background-color: #F7F8F9;
+}
 
 div.toppp{
 	float: left;
@@ -343,16 +347,21 @@ div#sousuo input{
 	margin-left: 20px;
 	padding-left: 4px;
 }
-div#sousuo button{
-	width: 83px;
+input#index-keywords:hover{
+	border: 1px solid #3DA8F5;
+}
+.index-button{
+	width: 91px;
 	height: 38px;
 	border: 2px solid #FF6146;
 	background-color: #FF6146;
-	color: #FFFFFF;
-	border-radius: 2px;
 	margin-right: 30px;
+	margin-top: -3px;
 }
-
+.indexbt{
+	color: #FFFFFF;
+	font-size: 16px;
+}
 .downloadShow{
 	position: absolute;
     left: 496px;
@@ -432,4 +441,8 @@ div#sousuo button{
 	color: #FD4545;
 	text-align: center;
     padding-bottom: 9px;
+}
+
+#Guess-Infor p:hover{
+	background-color: #F7F8F9;
 }

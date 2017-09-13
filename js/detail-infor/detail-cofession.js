@@ -26,7 +26,7 @@ $.ajax({
 			var re = data.Result;
 		
 			pro += '<span class="work-line work-report" onclick="Report()">'
-			pro += 		'<img src="assets/举报.png" />'
+			pro += 		'<img src="assets/举报.png" style="margin-top:-7px;"/>'
 			pro += 		'<span class="work-text01">&nbsp;举报</span>'
 			pro += '</span>'
 			pro += '<br />'
@@ -50,8 +50,8 @@ $.ajax({
 			pro +=	'</span>'
 			pro += '<span class="work-line">'
 			pro += '<div class="btn-group" role="group" style = "margin-right:30px">'
-			pro +=	  '<button type="button" class="btn btn-default dropdown-toggle btn-danger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">电话联系</button>'
-			pro +=	  '<ul class="dropdown-menu">'
+			pro +=	  '<button type="button" class="btn btn-default dropdown-toggle btn-danger phone-contact" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">电话联系</button>'
+			pro +=	  '<ul class="dropdown-menu dropMenu">'
 			pro +=		 '<li>'+re.Phone+'</li>'
 			pro +=	  '</ul>'
 			pro +=	'</div>'
@@ -68,6 +68,10 @@ $.ajax({
 			$("#ProvInfor").html(pro);
 			$("#bProv01").html(ProvIn01);
 			$("#bProv02").html(ProvIn02);
+			
+			if(getCookie("token") == null){
+				$(".phone-contact").attr("disabled", true);
+			}
 		}
 		else{
 			alert(data.Result);

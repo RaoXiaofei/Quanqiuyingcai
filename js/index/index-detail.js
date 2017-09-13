@@ -58,7 +58,7 @@ $(document).ready(function(){
 			
 			d4 += '<div class="btn-group" role="group" style="margin-right:30px;">'
 			d4 +=	  '<button type="button" class="btn btn-default dropdown-toggle btn-danger phone-contact" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">电话联系</button>'
-			d4 +=	  '<ul class="dropdown-menu">'
+			d4 +=	  '<ul class="dropdown-menu dropMenu">'
 			d4 +=		 '<li>'+re.Phone+'</li>'
 			d4 +=	  '</ul>'
 			d4 +=	'</div>'
@@ -79,6 +79,10 @@ $(document).ready(function(){
 			$("#para01").html(detaP1);
 			$("#para02").html(detaP2);
 			$("#compIn").html(compInfor);	
+			
+			if(getCookie("token") == null){
+				$(".phone-contact").attr("disabled", true);
+			}
 		}
 		
 	});

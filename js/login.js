@@ -6,10 +6,16 @@ $("#qingkong").click(function() {
 });
 $(".phone").click(function() {
 	$(".phone-number").css("color", "#FF6146");
+	$("#get-code").addClass("getCodeBack");
+	$("#get-codetext").addClass("get-codetextBack");
 })
 $("#code-frame").click(function() {
 	$(".phone-number").css("color", "#4A4A4A");
+	$("#get-code").removeClass("getCodeBack");
+	$("#get-codetext").removeClass("get-codetextBack");
 })
+$("#get-code").removeClass("getCodeBack");
+$("#get-codetext").removeClass("get-codetextBack");
 
 function login(e) {
 	var phone = $("#phone").val();

@@ -269,3 +269,39 @@ function UploadWorkImg(liID, inputID, imgID) {
 
 	});
 }
+
+var wz = location.href;
+var fenlei = wz.split("#")[0];
+//if(wz == "http://127.0.0.1:8020/quancai/index.html" || wz == "http://www.quanqiuyingcai.com/"){
+//	$(".indexTopMenu").removeClass("topclass");
+//	$(".indexTopMenu").eq(0).addClass("topclass");
+//}
+//else if(fenlei == "http://127.0.0.1:8020/quancai/list-work.html"){
+//	$(".indexTopMenu").removeClass("topclass");
+//	$(".indexTopMenu").eq(1).addClass("topclass");
+//}
+//else if(wz == "http://127.0.0.1:8020/quancai/issue.html"){
+//	$(".indexTopMenu").removeClass("topclass");
+//	$(".indexTopMenu").eq(2).addClass("topclass");
+//}
+//else if(fenlei == "http://127.0.0.1:8020/quancai/all-information.html"){
+//	$(".indexTopMenu").removeClass("topclass");
+//	$(".indexTopMenu").eq(3).addClass("topclass");
+//}
+
+if(wz == "http://www.quanqiuyingcai.com/index.html" || wz == "http://www.quanqiuyingcai.com/" || wz == "http://www.quanqiuyingcai.com"){
+	$(".indexTopMenu").removeClass("topclass");
+	$(".indexTopMenu").eq(0).addClass("topclass");
+}
+else if(fenlei == "http://www.quanqiuyingcai.com/list-work.html"){
+	$(".indexTopMenu").removeClass("topclass");
+	$(".indexTopMenu").eq(1).addClass("topclass");
+}
+else if(wz == "http://www.quanqiuyingcai.com/issue.html"){
+	$(".indexTopMenu").removeClass("topclass");
+	$(".indexTopMenu").eq(2).addClass("topclass");
+}
+else if(fenlei == "http://www.quanqiuyingcai.com/all-information.html"){
+	$(".indexTopMenu").removeClass("topclass");
+	$(".indexTopMenu").eq(3).addClass("topclass");
+}
