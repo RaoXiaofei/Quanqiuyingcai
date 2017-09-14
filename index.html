@@ -2,8 +2,11 @@
 
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    	<meta name="keywords" content="全球英才" />
+    	<meta name="description" content="全球英才一直专注于互联网领域，带给求职者方便的精准的求职体验，随时随地，直接开聊，聊爽就约，入职快，大巴随心坐，旅馆轻松住，出国打工一键搞定。">
 		<title>全球英才</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/index.css" type="text/css" />
@@ -115,7 +118,7 @@
 					<h5>全才通手机客户端</h5>
 					<button type="button" class="android"><img src="img/anzhuo.png"/><span class="Androidtext">Android&nbsp;版下载</span></button>
 					<button type="button" class="ios"><img src="img/ios.png"/><span class="Androidtext">iOS&nbsp;版下载</span></button>
-					<img src="img/二维码.jpg" />
+					<img src="img/qrcode_for_gh_416f85eff054_860.jpg" style="width: 90px;height: 90px;"/>
 				</div>
 			</div>
 
@@ -265,9 +268,9 @@
 			</div>
 
 			<div class="row">
-				<div class="col-xs-12 col-md-9" style="background-color: #FFFFFF;">
+				<div class="col-xs-12 col-md-9" style="background-color: #FFFFFF;min-height: 648px;">
 					<div id="sousuo" style="margin-top: 30px;">
-						<input type="text" placeholder="请输入搜索" id="index-keywords" />
+						<input type="text" placeholder="请输入公司名称搜索" id="index-keywords" />
 						<button class="btn btn-default index-button" type="button" style="margin-left: -95px;" onclick="SearchAllposition(this)"><span class="indexbt">搜索</span></button>
 						<button class="btn btn-default index-button" type="button" onclick="Issue()"><span class="indexbt">一键发布</span></button>
 					</div>
@@ -337,19 +340,7 @@
 	<script src="js/changecity.js"></script>
 	<script src='http://api.map.baidu.com/api?v=2.0&ak=GAGiz9gdoRfTpImL6A2RZYxH' type='text/javascript'></script>
 	<script type="text/javascript">
-		var cityci;
-		// 百度地图API功能
-		var map = new BMap.Map("bdMapBox");
-		var nowCity = new BMap.LocalCity();
-		nowCity.get(bdGetPosition);
-
-		function bdGetPosition(result) {
-			this.cityci = result.name; //当前的城市名			
-			/*自定义代码*/
-			//			atCity.innerHTML = this.cityci;
-			/*自定义代码*/
-			setCookie("city", this.cityci);
-		}
+		
 	</script>
 	<script src="js/kuCity.js"></script>
 	<script>
@@ -357,5 +348,4 @@
 	</script>
 	<script type="text/javascript" src="js/index/swiper.min.js"></script>
 	<script src="js/index/index.js"></script>
-
 </html>

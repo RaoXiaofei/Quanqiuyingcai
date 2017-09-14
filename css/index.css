@@ -198,18 +198,6 @@ div.getMo{
     left: 60px;
     top: 6px;
 }
-.getCode{
-    position: absolute;
-    left: 263px;
-    top: 63px;
-    border-radius: 6px;
-    background-color: #FFFFFF;
-    border: 1px solid #979797;
-    height: 30px;
-}
-.getCode:hover{
-	background-color: #f7f8f9;
-}
 #container2 .index-text30{
 	padding-left: 15px;
 	display:-moz-inline-box;

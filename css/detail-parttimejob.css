@@ -157,7 +157,7 @@
     letter-spacing: 1px;
     color: #9B9B9B;
     padding-top: 2px;
-    width: 197px;
+    width: 220px;
     padding-left: 38px;
 }
 .imgggg{
@@ -186,4 +186,5 @@
 }
 .work-address img:first-child {
     width: 18px;
+    margin-top: 0px;
 }

@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="css/all-information.css" type="text/css" />
 		<link rel="stylesheet" href="css/issue.css" type="text/css" />
 		<link rel="stylesheet" href="css/kuCity.css" />
+		<link rel="stylesheet" href="css/zoomify.css" />
 	</head>
 
 	<body class="resumeinfor">
@@ -221,7 +222,6 @@
 									</div>
 								</div>
 							</form>
-
 						</li>
 					</ul>
 					<ul class="issue-top">
@@ -361,11 +361,24 @@
 							<input type="text" class="input-text01" id="middle-address" value="" />
 						</li>
 					</ul>
-
 					<ul class="issue-top">
 						<li class="issuetop-text06">公司介绍：</li>
 						<li id="mi-intro">
 							<textarea class="input-textarea01" id="middle-intro"></textarea>
+						</li>
+					</ul>
+					<ul class="issue-top">
+						<li class="issuetop-text01">上传营业执照：</li>
+						<li class="issuetop-img01" id="loadMiddleImage">
+							<input type="file" id="loadMiddleImga"/>
+							<img src="assets/添加.png" id="loadMiddleImge" alt="图片加载错误"/>
+						</li>
+					</ul>
+					<ul class="issue-top">
+						<li class="issuetop-text01">劳务派遣经营许可证：</li>
+						<li class="issuetop-img01" id="loadMiddleLabourImage">
+							<input type="file" id="loadMiddleLabourImga"/>
+							<img src="assets/添加.png" id="loadMiddleLabourImge" alt="图片加载错误" />
 						</li>
 					</ul>
 					<ul class="issue-top" style="margin-bottom: 43px;">
@@ -448,6 +461,20 @@
 						<li class="issuetop-text06">公司介绍：</li>
 						<li id="enterprise-intro">
 							<textarea class="input-textarea01" id="company-intro"></textarea>
+						</li>
+					</ul>
+					<ul class="issue-top">
+						<li class="issuetop-text01">上传营业执照：</li>
+						<li class="issuetop-img01" id="loadCompanyImage">
+							<input type="file" id="loadCompanyImga"/>
+							<img src="assets/添加.png" id="loadCompanyImge" alt="图片加载错误"/>
+						</li>
+					</ul>
+					<ul class="issue-top">
+						<li class="issuetop-text01">劳务派遣经营许可证：</li>
+						<li class="issuetop-img01" id="loadCompanyLabourImage">
+							<input type="file" id="loadCompanyLabourImga"/>
+							<img src="assets/添加.png" id="loadCompanyLabourImge" alt="图片加载错误" />
 						</li>
 					</ul>
 					<ul class="issue-top" style="margin-bottom: 43px;">
@@ -564,14 +591,14 @@
 					<ul class="issue-top" id="rent-price">
 						<li class="issuetop-text01">价目表：</li>
 						<li class="issuetop-img01" id="updateRentImage">
-							<input type="file" id="updateRentImge" />
+							<!--<input type="file" id="updateRentImge"/>-->
 							<img src="assets/添加.png" id="updateRentImga" alt="图片加载错误" />
 						</li>
 					</ul>
 					<ul class="issue-top">
 						<li class="issuetop-text01">图片：</li>
 						<li class="issuetop-img01" id="updateRentInforImage">
-							<input type="file" id="updateRentInforImge" multiple="multiple" />
+							<!--<input type="file" id="updateRentInforImge" multiple="multiple" />-->
 							<img src="" id="updateRentInforImga" />
 						</li>
 					</ul>
@@ -718,7 +745,7 @@
 					<ul class="issue-top">
 						<li class="issuetop-text01">上传名片：</li>
 						<li class="issuetop-img01" id="updateCardImage">
-							<input type="file" id="updateCardImge" style="width: 94mm;height: 54mm;"/>
+							<!--<input type="file" id="updateCardImge" style="width: 94mm;height: 54mm;"/>-->
 							<img src="assets/添加.png" id="updateCardImga" alt="图片加载错误" style="width: 94mm;height: 54mm;"/>
 						</li>
 					</ul>
@@ -772,5 +799,5 @@
 	<script>
 		$('.search').kuCity();
 	</script>
-
+	<script type="text/javascript" src="js/zoomify.js" ></script>
 </html>

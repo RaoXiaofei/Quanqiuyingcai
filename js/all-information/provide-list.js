@@ -1,5 +1,7 @@
 var provideID = ''
 var Token = getCookie("token");
+
+getProvideList()
 /*
  * 获取供人信息列表
  */

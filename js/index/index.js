@@ -7,6 +7,23 @@ var infor = '';
 var city = ""
 var citycici = unescape(getCookie("city"));
 
+
+var cityci;
+// 百度地图API功能
+var map = new BMap.Map("bdMapBox");
+var nowCity = new BMap.LocalCity();
+nowCity.get(bdGetPosition);
+
+function bdGetPosition(result) {
+	this.cityci = result.name; //当前的城市名			
+	/*自定义代码*/
+	//			atCity.innerHTML = this.cityci;
+	/*自定义代码*/
+	setCookie("city", this.cityci);
+}
+
+
+
 var changeC = getCookie("change");
 
 window.onload = function() {

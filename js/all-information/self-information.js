@@ -1,3 +1,6 @@
+/*
+ * 改变当前城市修改全局city
+ */
 var city = unescape(getCookie("city"));
 var changeC = getCookie("change");
 if(getCookie("change") == null) {
@@ -162,6 +165,11 @@ $("#cerfication-button").click(function() {
 })
 
 /*
+ * 上传企业营业执照
+ */
+UploadLicenceImg("loadCompanyImage", "loadCompanyImga", "loadCompanyImge");
+UploadLabourLicenceImg("loadCompanyLabourImage", "loadCompanyLabourImga", "loadCompanyLabourImge");
+/*
  * 企业认证
  */
 $("#company-comfirm").click(function() {
@@ -178,6 +186,8 @@ $("#company-comfirm").click(function() {
 	var CompanyQQ = $("#companyQQ").val();
 	var Longitude = 0;
 	var Latitude = 0;
+	var LicenseImage = img_value;
+	var DispatchImage = image_val;
 	var Token = getCookie("token");
 	
 	if(CompanyName == '' || Address == '' || CompanySize == '' || CompanyNature == '' || CompanyTrade == '' || CompanyIntro == '' || CompanyQQ == ''){
@@ -207,6 +217,8 @@ $("#company-comfirm").click(function() {
 				"CompanyIntroduce": CompanyIntro,
 				"Longitude": 0,
 				"Latitude": 0,
+				"LicenseImage": LicenseImage,
+				"DispatchImage": DispatchImage,
 				"QQNumber": CompanyQQ,
 				"Token": Token
 			},
@@ -235,6 +247,8 @@ $("#company-comfirm").click(function() {
 	}
 })
 
+UploadLicenceImg("loadMiddleImage", "loadMiddleImga", "loadMiddleImge");
+UploadLabourLicenceImg("loadMiddleLabourImage", "loadMiddleLabourImga", "loadMiddleLabourImge");
 /*
  * 中介认证
  */
@@ -248,6 +262,8 @@ $("#middle-comfirm").click(function() {
 	var Area = $("#middlecmbArea").val();
 	var Address = $("#middle-address").val();
 	var Intro = $("#middle-intro").val();
+	var LicenseImage = img_value;
+	var DispatchImage = image_val;
 	var Longitude = 0;
 	var Latitude = 0;
 	var Token = getCookie("token");
@@ -276,6 +292,8 @@ $("#middle-comfirm").click(function() {
 				"CompanyIntroduce": Intro,
 				"Longitude": 0,
 				"Latitude": 0,
+				"LicenseImage":LicenseImage,
+				"DispatchImage":DispatchImage,
 				"QQNumber": QQnumber,
 				"Token": Token
 			},
@@ -451,7 +469,8 @@ $("#resume-button").click(function() {
 	$(this).css("background-color", "#FF6146");
 	$(this).hide();
 	$("#SaveResume").show();
-
+	
+	//设置元素只读状态
 	$('#resume-expe').attr("disabled", false);
 	$('input').attr("readonly", false) //去除input元素的readonly属性
 	$('textarea').attr("readonly", false);
@@ -460,7 +479,6 @@ $("#resume-button").click(function() {
 	$('#resume-job1').attr("disabled", false);
 	$('#resume-job2').attr("disabled", false);
 	$('#resume-expe').attr("disabled", false);
-	
 	$("#resumecmbProvince").attr("disabled",false);
 	$("#resumecmbCity").attr("disabled",false);
 	$("#resumecmbArea").attr("disabled",false);
@@ -580,7 +598,7 @@ function getCompanyInfor() {
 			});
 		},
 		success: function(data) {
-			//			console.log(data.Result);
+						console.log(data.Result);
 			var re = data.Result;
 			if(data.Status == 1) {
 				//显示省市区
@@ -589,6 +607,9 @@ function getCompanyInfor() {
 	    			city: re.City,
 	   		 		district: re.Region
 	  			});
+	  			
+	  			$("#loadCompanyImge").attr("src", re.LicenseImage);
+	  			$("#loadCompanyLabourImge").attr("src", re.DispatchImage);
 	  			
 	  			$("#company-name").val(re.CompanyName);
 	  			$("#company-size").val(re.CompanyScale);
@@ -605,6 +626,14 @@ function getCompanyInfor() {
 				$("#companycmbArea").attr("disabled",true);
 				
 //				$("#company-comfirm").hide();
+				
+				$("#loadCompanyLabourImga").css("display", "none");
+				$("#loadCompanyImga").css("display", "none");
+				/*
+				 * 图片放大
+				 */
+				$('#loadCompanyImge').zoomify();
+	  			$('#loadCompanyLabourImge').zoomify();
 
 			} else {
 				$("#distpicker-company-infor").distpicker({
@@ -663,6 +692,9 @@ function getMiddleInfor() {
 	   		 		district: re.Region
 	  			});
 	  			
+	  			$("#loadMiddleImge").attr("src", re.LicenseImage);
+	  			$("#loadMiddleLabourImge").attr("src", re.DispatchImage);
+	  			
 	  			$("#middle-name").val(re.CompanyName);
 	  			$("#middle-number").val(re.CompanyRegistration);
 	  			$("#middleQQ").val(re.QQNumber);
@@ -674,6 +706,13 @@ function getMiddleInfor() {
 	  			$("#middlecmbProvince").attr("disabled", true);
 	  			$("#middlecmbCity").attr("disabled", true);
 	  			$("#middlecmbArea").attr("disabled", true);
+	  			
+	  			//隐藏input，使得图片只能显示
+	  			$("#loadMiddleImga").css("display", "none");
+	  			$("#loadMiddleLabourImga").css("display", "none");
+	  			//图片放大
+	  			$('#loadMiddleImge').zoomify();
+	  			$('#loadMiddleLabourImge').zoomify();
 	  		
 			} else {
 				$("#distpicker-middle-infor").distpicker({
@@ -697,8 +736,8 @@ function getMiddleInfor() {
 $('.information-right1').hide();
 $(".information-right2").hide();
 /*
- * 菜单栏的点击事件
- */
+   * 菜单栏的点击事件
+   */
 $(document).ready(function() {
 	var inforID = window.document.location.href;
 	var inID = inforID.split("#")[1];

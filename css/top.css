@@ -155,15 +155,6 @@ body{
 	color: #979797;
 	letter-spacing: 0.5px;
 }
-.get-code{	
-    position: absolute;
-    left: 262px;
-    top: 146px;
-    border-radius: 6px;
-    background-color: #FFFFFF;
-    border: 1px solid #FF6146;
-    height: 30px;
-}
 .getCodeBack{
 	border: 1px solid #FF6146;
 }
@@ -247,7 +238,6 @@ body{
 	color: #FF6146;
 	border-bottom: 2px solid #FF6146;
 }
-
 .getCode{
     position: absolute;
     left: 263px;

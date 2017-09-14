@@ -5,6 +5,8 @@ var rentCit = ''
 var rentReg = ''
 
 var rentPriImg = '';
+var rentDetailImg = []
+
 /*
  * 获取周边住房列表
  */
@@ -94,13 +96,18 @@ function ShowRentInfor(inforID){
 				$("#updateRentImga").attr("src", urlf+re.PriceImage);
 				rentPriImg = re.PriceImage;
 				
-				img += '<input type="file" id="updateRentInforImge" multiple="multiple"/>'
+//				img += '<input type="file" id="updateRentInforImge" multiple="multiple"/>'
 				for (var i = 0; i < re.ImageList.length; i++) {
-					rentImg[i] = urlf+re.ImageList[i].Image;	
+					rentImg[i] = urlf+re.ImageList[i].Image;
+					rentDetailImg[i] = rentImg[i];
+					
 					img +=	'<img src="'+rentImg[i]+'" id="rent_imgList0"/>'					
 				}
 				
 				$("#updateRentInforImage").html(img);
+				
+				$('#updateRentImga').zoomify();
+				$("#updateRentInforImage img").zoomify();
 			}
 			else{
 				alert(data.Result);
@@ -109,13 +116,24 @@ function ShowRentInfor(inforID){
 	});
 }
 
-//修改上传周边租房价目表和工作介绍图片
-UploadPriceImg("updateRentImage", "updateRentImge", "updateRentImga");
-UploadWorkImg("updateRentInforImage", "updateRentInforImge", "rent_imgList0");
+var imgd = '';
+var imgh = '';
 /*
  * 修改信息
  */
 $("#modify-rent-button").click(function(){
+	//修改上传周边租房价目表和工作介绍图片
+	UploadPriceImg("updateRentImage", "updateRentImge", "updateRentImga");
+	UploadWorkImg("updateRentInforImage", "updateRentInforImge", "rent_imgList0");
+	
+	var rentImg = [];
+	var rentDtai = []; 
+	imgh = '';
+	imgd = '';
+	
+	var prrrriceImage = rentPriImg;
+	rentDtai = rentDetailImg;
+	
 	$("#modify-rent-button").hide();
 	$("#SaveRent").show();
 	$("input").attr("readonly",false);
@@ -123,7 +141,19 @@ $("#modify-rent-button").click(function(){
 	$("#rentcmbProvince").attr("disabled",false);
 	$("#rentcmbCity").attr("disabled",false);
 	$("#rentcmbArea").attr("disabled",false);
+	
+	imgh += '<input type="file" id="updateRentImge" />'
+	imgh +=  '<img src="'+urlf+prrrriceImage+'" id="updateRentImga" alt="图片加载错误" />'
+	
+	imgd += '<input type="file" id="updateRentInforImge" multiple="multiple"/>'
+	for (var i = 0; i < rentDtai.length; i++) {
+		rentImg[i] = rentDtai[i];	
+		imgd +=	'<img src="'+rentImg[i]+'" id="rent_imgList0"/>'					
+	}
+	$("#updateRentInforImage").html(imgd);
+	$("#updateRentImage").html(imgh);
 })
+
 /*
  * 修改周边租房信息
  */
@@ -179,6 +209,7 @@ $("#SaveRent").click(function(){
 				$("#rentcmbProvince").attr("disabled",true);
 				$("#rentcmbCity").attr("disabled",true);
 				$("#rentcmbArea").attr("disabled",true);
+				$("#updateRentImge").css("display", "none");
 				rentPriImg = '';
 			}
 			else{

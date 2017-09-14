@@ -23,7 +23,7 @@ function GetBusList(){
 		success:function(data){
 			if(data.Status == 1){
 				var re = data.Result.List;
-//				console.log(data.Result);
+				console.log(data.Result);
 				for(var i in re){
 					if(re[i].IsUrgent == false){
 						allB += '<p class="index-guesstext">'

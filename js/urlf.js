@@ -1,6 +1,7 @@
 var urlf = "http://api.quanqiuyingcai.com/";
 var image_value = "";
 var img_value = '';
+var image_val = '';
 var a = [];
 var b = [];
 var bimg = [];
@@ -193,6 +194,86 @@ function UploadCardImg(liID, inputID, imgID) {
 	});
 }
 /*
+ * 营业执照上传图片
+ */
+function UploadLicenceImg(liID, inputID, imgID) {
+	$("#" + liID).delegate("#" + inputID, "change", function() {
+		var formdata = new FormData();
+		formdata.append("file", $("#" + inputID)[0].files[0]);
+		//获取文件法二
+		$.ajax({
+			type: 'post',
+			url: urlf + 'api/Photo/UpdateForImage?type=6',
+			data: formdata,
+			cache: false,
+			processData: false, // 不处理发送的数据，因为data值是Formdata对象，不需要对数据做处理
+			contentType: false, // 不设置Content-type请求头
+			success: function(data) {
+//			console.log(data.Result);
+				img_value = data.Result;
+			}
+		})
+		//图片预览效果
+		var $file = $(this);
+		var fileObj = $file[0];
+		var windowURL = window.URL || window.webkitURL;
+		// var dataURL;
+		var $img = $("#" + imgID);
+
+		if(fileObj && fileObj.files && fileObj.files[0]) {
+			dataURL = windowURL.createObjectURL(fileObj.files[0]);
+			$img.attr('src', dataURL);
+			$img.css("width", "70px");
+			$img.css("height", "70px")
+		} else {
+			dataURL = $file.val();
+			var imgObj = document.getElementById(imgID);
+			imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+			// imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+		}
+	});
+}
+/*
+ * 上传劳务派遣执照图片
+ */
+function UploadLabourLicenceImg(liID, inputID, imgID) {
+	$("#" + liID).delegate("#" + inputID, "change", function() {
+		var formdata = new FormData();
+		formdata.append("file", $("#" + inputID)[0].files[0]);
+		//获取文件法二
+		$.ajax({
+			type: 'post',
+			url: urlf + 'api/Photo/UpdateForImage?type=6',
+			data: formdata,
+			cache: false,
+			processData: false, // 不处理发送的数据，因为data值是Formdata对象，不需要对数据做处理
+			contentType: false, // 不设置Content-type请求头
+			success: function(data) {
+//			console.log(data.Result);
+				image_val = data.Result;
+			}
+		})
+		//图片预览效果
+		var $file = $(this);
+		var fileObj = $file[0];
+		var windowURL = window.URL || window.webkitURL;
+		// var dataURL;
+		var $img = $("#" + imgID);
+
+		if(fileObj && fileObj.files && fileObj.files[0]) {
+			dataURL = windowURL.createObjectURL(fileObj.files[0]);
+			$img.attr('src', dataURL);
+			$img.css("width", "70px");
+			$img.css("height", "70px")
+		} else {
+			dataURL = $file.val();
+			var imgObj = document.getElementById(imgID);
+			imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+			// imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+		}
+	});
+}
+/*
  * 上传租房详情图片（不多于6张）
  */
 function UploadListImg(liID, inputID, imgID) {
@@ -201,7 +282,6 @@ function UploadListImg(liID, inputID, imgID) {
 		for(var i = 0; i < 5; i++) {
 			formdata.append("file", $("#" + inputID)[0].files[i]);
 		}
-		var img = '';
 		//上传图片
 		$.ajax({
 			type: 'post',
@@ -214,6 +294,7 @@ function UploadListImg(liID, inputID, imgID) {
 				//	        	console.log(data.Result);
 				if(data.Status == 1) {
 					console.log(data.Result);
+					var im =''
 					for(var i = 0; i < data.Result.length; i++) {
 
 						if(data.Result.length < 6) {
@@ -233,11 +314,13 @@ function UploadListImg(liID, inputID, imgID) {
 		})
 	});
 }
-var im = ''
+
+
 /*
  * 上传工作介绍图片
  */
 function UploadWorkImg(liID, inputID, imgID) {
+	var imm = ''
 	$("#" + liID).delegate("#" + inputID, "change", function() {
 		var formdata = new FormData();
 		for(var i = 0; i < 5; i++) {
@@ -257,10 +340,10 @@ function UploadWorkImg(liID, inputID, imgID) {
 					for(var i = 0; i < data.Result.length; i++) {
 						bimg[i] = data.Result[i];
 						b[i] = urlf + data.Result[i];
-						im += '<input type="file" id=' + inputID + ' multiple="multiple">'
-						im += '<img src="' + b[i] + '" alt="" id=' + imgID + '  style="width: 70px;height: 70px; margin-right:33px">'
+						imm += '<input type="file" id=' + inputID + ' multiple="multiple">'
+						imm += '<img src="' + b[i] + '" alt="" id=' + imgID + '  style="width: 70px;height: 70px; margin-right:33px">'
 					}
-					$("#" + liID).html(im);
+					$("#" + liID).html(imm);
 				} else {
 					alert(data.Status);
 				}

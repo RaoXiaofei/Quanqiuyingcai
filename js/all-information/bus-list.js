@@ -85,6 +85,9 @@ function ShowBusInfor(inforID){
 	    		$("#driver-name").val(re.DriverName);
 	    		$("#car-address").val(re.Address);
 	    		$("#car-number").val(re.LicensePlate);
+	    		
+	    		
+	    		$("#updateCardImga").zoomify();
 	    	}
 	    }
 	});
@@ -102,6 +105,12 @@ $("#modify-bus-button").click(function(){
 	$("#buscmbProvince").attr("disabled",false);
 	$("#buscmbCity").attr("disabled",false);
 	$("#buscmbArea").attr("disabled",false);
+	var idImage = busImageID;
+	var idImg = '';
+	idImg += '<input type="file" id="updateCardImge" style="width: 94mm;height: 54mm;"/>'
+	idImg += '<img src="'+idImage+'" id="updateCardImga" alt="图片加载错误" style="width: 94mm;height: 54mm;"/>'
+	
+	$("#updateCardImage").html(idImg);
 })
 /*
  * 修改全国大巴信息
@@ -151,6 +160,7 @@ $("#SaveBus").click(function(){
 				$("#buscmbProvince").attr("disabled",true);
 	    		$("#buscmbCity").attr("disabled",true);
 	    		$("#buscmbArea").attr("disabled",true);
+	    		$("#updateCardImge").css("display", "none");
 	    		busImageID = '';
 			}
 			else{
